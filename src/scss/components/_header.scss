@@ -1,0 +1,452 @@
+﻿// ========================================
+// 0. MENU VARIABLES (Add at the top of your file or in variables)
+// ========================================
+
+:root {
+  // Menu-specific with higher opacity for better readability
+  --menu-bg: rgba(20, 25, 35, 0.95);
+  --menu-border: rgba(255, 255, 255, 0.15);
+}
+
+body.light-mode {
+  --menu-bg: rgba(255, 255, 255, 0.95);
+  --menu-border: rgba(0, 0, 0, 0.1);
+}
+
+// ========================================
+// 1. HEADER WRAPPER
+// ========================================
+
+.site-header {
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+  background: var(--glass-bg, $glass-bg);
+  border-bottom: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  transition: $transition-base;
+
+  body.menu-open & {
+    overflow: visible;
+  }
+  
+  // Compact mode (scrolled)
+  &.scrolled {
+    padding-top: $spacing-xs;
+    padding-bottom: $spacing-xs;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  body.light-mode & {
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+
+// ========================================
+// 2. HEADER CONTAINER
+// ========================================
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 1.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  min-height: 4.25rem;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: $breakpoint-lg) {
+    gap: 0.75rem;
+    padding-inline: 1rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: calc(0.7rem + env(safe-area-inset-top, 0px)) 0.9rem 0.7rem;
+    min-height: 3.8rem;
+    gap: $spacing-sm;
+  }
+}
+
+
+// ========================================
+// 3. LOGO
+// ========================================
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 0;
+  
+  .logo-icon {
+    font-size: 2.8rem;
+    color: $color-accent-blue;
+    
+    img {
+      height: 3.4rem;
+      width: auto;
+      display: block;
+    }
+  }
+  
+  .logo-text {
+    font-size: clamp(1.08rem, 1.3vw, 1.55rem);
+    font-weight: $font-weight-extrabold;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, $color-accent-blue, $color-accent-purple, $color-accent-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 17rem;
+
+    @media (max-width: 640px) {
+      max-width: 10.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+      max-width: 9rem;
+    }
+  }
+  
+  &:hover {
+    text-decoration: none;
+    
+    .logo-text {
+      background: linear-gradient(135deg, $color-accent-purple, $color-accent-blue, $color-accent-green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}
+
+
+// ========================================
+// 4. NAVIGATION
+// ========================================
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $spacing-sm;
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-sm;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+  
+  a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius-full;
+    color: var(--text-secondary, $color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: $font-weight-medium;
+    transition: $transition-fast;
+    text-decoration: none;
+    font-family: $font-family-base;
+    white-space: nowrap;
+
+    @media (max-width: $breakpoint-lg) {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.8rem;
+    }
+    
+    &:hover {
+      color: var(--text-primary, $color-text-primary);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    &.active {
+      color: $color-accent-blue;
+      background: rgba($color-accent-blue, 0.12);
+      
+      body.light-mode & {
+        background: rgba($color-accent-blue, 0.08);
+      }
+    }
+  }
+  
+  // Mobile menu toggle button
+  .nav-toggle {
+    display: none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text-primary, $color-text-primary);
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0.7rem;
+    cursor: pointer;
+    transition: $transition-fast;
+    border-radius: $border-radius-full;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+    z-index: 1200;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-1px);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid $color-accent-blue;
+    }
+
+    .nav-toggle-icon {
+      position: relative;
+      display: block;
+      width: 1.2rem;
+      height: 0.9rem;
+
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease, bottom 0.25s ease;
+        transform-origin: center;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+          bottom: 0;
+        }
+      }
+    }
+
+    &.is-active {
+      .nav-toggle-icon span {
+        &:nth-child(1) {
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0.2);
+        }
+
+        &:nth-child(3) {
+          bottom: 50%;
+          transform: translateY(50%) rotate(-45deg);
+        }
+      }
+    }
+
+    body.light-mode & {
+      background: rgba(255, 255, 255, 0.75);
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+  }
+  
+  @media (max-width: $breakpoint-lg) {
+    ul {
+      gap: 0.25rem;
+      padding-inline: 0.25rem;
+    }
+
+    a {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  &.is-collapsed {
+    ul {
+      display: none;
+      position: fixed;
+      top: calc(4.25rem + env(safe-area-inset-top, 0px));
+      left: 0.75rem;
+      right: 0.75rem;
+      flex-direction: column;
+      
+      background: var(--menu-bg, rgba(20, 25, 35, 0.95));
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--menu-border, rgba(255, 255, 255, 0.15));
+      border-radius: $border-radius-xl;
+      padding: $spacing-sm;
+      gap: 0.25rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      z-index: 1100;
+      max-height: min(70dvh, 26rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      
+      body.light-mode & {
+        background: var(--menu-bg, rgba(255, 255, 255, 0.95));
+        border-color: var(--menu-border, rgba(0, 0, 0, 0.1));
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+      
+      &.is-open {
+        display: flex;
+      }
+      
+      a {
+        padding: 0.8rem 1rem;
+        width: 100%;
+        border-radius: $border-radius-md;
+        text-align: left;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+        }
+        
+        &.active {
+          background: rgba($color-accent-blue, 0.2);
+          color: $color-accent-blue;
+        }
+        
+        body.light-mode & {
+          color: rgba(0, 0, 0, 0.85);
+          
+          &:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: #000000;
+          }
+        }
+      }
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+  }
+}
+
+
+// ========================================
+// 5. HEADER ACTIONS (Theme toggle, search, etc.)
+// ========================================
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+  
+  .header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: $border-radius-full;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-secondary, $color-text-secondary);
+    font-size: 1.1rem;
+    transition: $transition-fast;
+    cursor: pointer;
+    
+    &:hover {
+      color: var(--text-primary, $color-text-primary);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid $color-accent-blue;
+    }
+    
+    body.light-mode &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  // Search toggle (optional)
+  .search-toggle {
+    display: none;
+    
+    @media (max-width: $breakpoint-md) {
+      display: inline-flex;
+    }
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+
+// ========================================
+// 6. RESPONSIVE ADJUSTMENTS
+// ========================================
+
+@media (max-width: $breakpoint-lg) {
+  .header-container {
+    gap: 0.75rem;
+  }
+
+  .logo .logo-text {
+    max-width: 14rem;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .header-container {
+    flex-wrap: nowrap;
+  }
+  
+  .logo .logo-text {
+    font-size: 1.1rem;
+    max-width: 10rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.45rem 0.7rem;
+  }
+  
+  .logo .logo-text {
+    font-size: 0.98rem;
+    max-width: 8.4rem;
+  }
+  
+  .header-actions .header-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Page not found | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    (function () {
+      const key = 'clareon-theme';
+      const theme = localStorage.getItem(key) === 'light' ? 'light' : 'dark';
+      const root = document.documentElement;
+      root.classList.toggle('light-mode', theme === 'light');
+      root.style.colorScheme = theme;
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body data-page="404">
+  <main>
+    <h1>Page not found</h1>
+    <p>The page you requested does not exist.</p>
+    <a href="/">Return to the student portal</a>
+  </main>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

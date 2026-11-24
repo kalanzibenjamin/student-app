@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-settings">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Settings</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="settings-section" aria-labelledby="appearance-title">
+          <div class="settings-section__heading">
+            <div><p>Personalisation</p><h2 id="appearance-title">Appearance</h2></div>
+          </div>
+          <div class="settings-theme-options" role="radiogroup" aria-label="Theme">
+            <button type="button" class="settings-theme-option" data-theme-choice="light" role="radio" aria-checked="false">
+              <span class="settings-theme-preview settings-theme-preview--light"><i></i><i></i><i></i></span>
+              <span><strong>Light</strong><small>Bright interface</small></span>
+            </button>
+            <button type="button" class="settings-theme-option" data-theme-choice="dark" role="radio" aria-checked="false">
+              <span class="settings-theme-preview settings-theme-preview--dark"><i></i><i></i><i></i></span>
+              <span><strong>Dark</strong><small>Low-light interface</small></span>
+            </button>
+            <button type="button" class="settings-theme-option" data-theme-choice="system" role="radio" aria-checked="false">
+              <span class="settings-theme-preview settings-theme-preview--system"><i></i><i></i><i></i></span>
+              <span><strong>System</strong><small>Match device</small></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="preferences-title">
+          <div class="settings-section__heading">
+            <div><p>Portal</p><h2 id="preferences-title">Preferences</h2></div>
+          </div>
+          <div class="settings-rows">
+            <div class="settings-row">
+              <div class="settings-row__text">
+                <strong>Language</strong>
+                <p>Choose the language used across the portal.</p>
+              </div>
+              <select class="dropdown-select" id="portal-language" data-setting-language aria-label="Portal language">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__text">
+                <strong>Attendance notifications</strong>
+                <p>Receive updates about sessions and attendance records.</p>
+              </div>
+              <label class="settings-switch">
+                <input type="checkbox" data-setting-attendance-notifications>
+                <span aria-hidden="true"></span>
+              </label>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__text">
+                <strong>Assignment reminders</strong>
+                <p>Receive reminders before assignments are due.</p>
+              </div>
+              <label class="settings-switch">
+                <input type="checkbox" data-setting-assignment-reminders>
+                <span aria-hidden="true"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="location-title">
+          <div class="settings-section__heading">
+            <div><p>Attendance</p><h2 id="location-title">Location access</h2></div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row__text">
+              <strong>Allow location verification</strong>
+              <p>Used only during attendance sessions that require venue verification.</p>
+            </div>
+            <button type="button" class="settings-location-button" data-location-toggle>
+              <i class="fas fa-location-crosshairs" aria-hidden="true"></i>
+              <span>Enable</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="security-title">
+          <div class="settings-section__heading">
+            <div><p>Account</p><h2 id="security-title">Security</h2></div>
+          </div>
+          <div class="settings-row settings-row--security">
+            <div class="settings-row__text">
+              <strong>Password</strong>
+              <p>Password changes require the authentication service.</p>
+            </div>
+            <button type="button" class="settings-secondary-button" disabled>Change password</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

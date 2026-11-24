@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    (function () {
+      const key = 'clareon-theme';
+      const theme = localStorage.getItem(key) === 'light' ? 'light' : 'dark';
+      const root = document.documentElement;
+      root.classList.toggle('light-mode', theme === 'light');
+      root.style.colorScheme = theme;
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <header class="auth-brand">
+      <img src="/src/assets/images/logo/kyu-logo.png" alt="Kyambogo University" width="220" height="220">
+      <p class="auth-brand__name">Kyambogo University</p>
+      <p class="auth-brand__sub">Clareon Student Portal</p>
+    </header>
+
+    <section class="auth-card" aria-labelledby="sign-in-title">
+      <h1 id="sign-in-title">Login to your account</h1>
+
+      <form class="auth-form" method="post" action="/login">
+        <div class="auth-field">
+          <label class="visually-hidden" for="login-email">Student number or registration number</label>
+          <span class="auth-field__icon" aria-hidden="true"><i class="fas fa-user"></i></span>
+          <input id="login-email" name="identity" autocomplete="username" placeholder="Student Number or Reg. Number" required>
+        </div>
+
+        <div class="auth-field">
+          <label class="visually-hidden" for="login-password">Password</label>
+          <span class="auth-field__icon" aria-hidden="true"><i class="fas fa-lock"></i></span>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Password" required>
+          <span class="auth-field__action" aria-hidden="true"><i class="fas fa-eye"></i></span>
+        </div>
+
+        <button class="auth-submit" type="submit" disabled aria-describedby="login-status">
+          <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+          <span>Sign in</span>
+        </button>
+      </form>
+
+      <p class="auth-status visually-hidden" id="login-status" role="status">
+        Sign-in is unavailable until authentication is connected.
+      </p>
+    </section>
+
+    <nav class="auth-links" aria-label="Account assistance and registration">
+      <a href="/forgot-password/">Forgot password?</a>
+      <a href="/pages/signup/">Sign up?</a>
+    </nav>
+
+    <p class="auth-copyright">&copy; 2026 Clareon. All rights reserved.</p>
+  </main>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notifications | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-notifications">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Notifications</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications" aria-current="page">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="3">3</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="notification-toolbar" aria-label="Notification controls">
+          <div class="notification-filters" role="group" aria-label="Filter notifications">
+            <button type="button" class="is-active" data-notification-filter="all">All</button>
+            <button type="button" data-notification-filter="unread">Unread</button>
+            <button type="button" data-notification-filter="academic">Academic</button>
+            <button type="button" data-notification-filter="account">Account</button>
+          </div>
+          <button type="button" class="notification-mark-all" data-mark-all-read>
+            <i class="fas fa-check-double" aria-hidden="true"></i>
+            <span>Mark all read</span>
+          </button>
+        </section>
+
+        <section class="notification-list" aria-live="polite">
+          <article class="notification-item is-unread" data-notification-category="academic" data-notification-state="unread">
+            <span class="notification-item__icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+            <button type="button" class="notification-item__body" aria-label="Open timetable updated notification">
+              <span class="notification-item__meta"><strong>Academic</strong><time datetime="2026-11-24T09:15">12 min ago</time></span>
+              <h2>Timetable updated</h2>
+              <p>Computer Networks has moved to ICT Building, Room 2.</p>
+            </button>
+            <button type="button" class="notification-item__read" data-mark-read aria-label="Mark Timetable updated as read">
+              <span aria-hidden="true"></span>
+            </button>
+          </article>
+
+          <article class="notification-item is-unread" data-notification-category="academic" data-notification-state="unread">
+            <span class="notification-item__icon notification-item__icon--green"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
+            <button type="button" class="notification-item__body" aria-label="Open assignment due notification">
+              <span class="notification-item__meta"><strong>Assignment</strong><time datetime="2026-11-24T07:30">2 hr ago</time></span>
+              <h2>Subnetting report due soon</h2>
+              <p>Submission closes on 28 November at 23:59.</p>
+            </button>
+            <button type="button" class="notification-item__read" data-mark-read aria-label="Mark Subnetting report due soon as read">
+              <span aria-hidden="true"></span>
+            </button>
+          </article>
+
+          <article class="notification-item is-unread" data-notification-category="account" data-notification-state="unread">
+            <span class="notification-item__icon notification-item__icon--purple"><i class="fas fa-user-shield" aria-hidden="true"></i></span>
+            <button type="button" class="notification-item__body" aria-label="Open account security notification">
+              <span class="notification-item__meta"><strong>Account</strong><time datetime="2026-11-23T16:20">Yesterday</time></span>
+              <h2>Security settings reviewed</h2>
+              <p>Your recent account settings change was saved successfully.</p>
+            </button>
+            <button type="button" class="notification-item__read" data-mark-read aria-label="Mark Security settings reviewed as read">
+              <span aria-hidden="true"></span>
+            </button>
+          </article>
+
+          <article class="notification-item" data-notification-category="academic" data-notification-state="read">
+            <span class="notification-item__icon notification-item__icon--neutral"><i class="fas fa-folder-open" aria-hidden="true"></i></span>
+            <button type="button" class="notification-item__body" aria-label="Open new material notification">
+              <span class="notification-item__meta"><strong>Materials</strong><time datetime="2026-11-21T14:10">21 Nov</time></span>
+              <h2>New material added</h2>
+              <p>Database Systems now has SQL Practical 3 available.</p>
+            </button>
+          </article>
+        </section>
+
+        <p class="notification-empty" data-notification-empty hidden>No notifications match this view.</p>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

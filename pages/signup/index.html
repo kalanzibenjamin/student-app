@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    (function () {
+      const key = 'clareon-theme';
+      const theme = localStorage.getItem(key) === 'light' ? 'light' : 'dark';
+      const root = document.documentElement;
+      root.classList.toggle('light-mode', theme === 'light');
+      root.style.colorScheme = theme;
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="auth-page" data-page="student-signup">
+  <main class="auth-shell">
+    <header class="auth-brand">
+      <img src="/src/assets/images/logo/kyu-logo.png" alt="Kyambogo University" width="220" height="220">
+      <p class="auth-brand__name">Kyambogo University</p>
+      <p class="auth-brand__sub">Clareon Student Portal</p>
+    </header>
+
+    <section class="auth-card" aria-labelledby="signup-title">
+      <h1 id="signup-title">Create student account</h1>
+
+      <form class="auth-form" id="signup-form" data-directory-url="/data/student-directory.json" method="post" action="#" novalidate>
+        <div class="auth-field">
+          <label class="visually-hidden" for="registration-number">Registration number</label>
+          <span class="auth-field__icon" aria-hidden="true"><i class="fas fa-id-card"></i></span>
+          <input
+            id="registration-number"
+            name="registrationNumber"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="24/U/EEE/05433/PE"
+            pattern="[A-Za-z0-9]+/[A-Za-z0-9]+/[A-Za-z0-9]+/[A-Za-z0-9]+/[A-Za-z0-9]+"
+            aria-describedby="signup-message"
+            required
+          >
+        </div>
+
+        <button class="auth-submit" type="submit">
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          <span>Continue</span>
+        </button>
+      </form>
+
+      <div class="auth-status" id="signup-message" role="status" aria-live="polite"></div>
+    </section>
+
+    <nav class="auth-links" aria-label="Account actions">
+      <a href="/">Back to sign in?</a>
+    </nav>
+
+    <p class="auth-copyright">&copy; 2026 Clareon. All rights reserved.</p>
+  </main>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

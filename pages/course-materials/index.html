@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Materials | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-course-materials">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Materials</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="materials-toolbar" aria-label="Material filters">
+          <label class="materials-search">
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <span class="visually-hidden">Search materials</span>
+            <input type="search" data-material-search placeholder="Search materials">
+          </label>
+          <select class="dropdown-select materials-filter" data-material-filter aria-label="Filter by resource type">
+            <option value="all">All resources</option>
+            <option value="lecture">Lecture notes</option>
+            <option value="reading">Readings</option>
+            <option value="practice">Practice</option>
+            <option value="past-paper">Past papers</option>
+          </select>
+        </section>
+
+        <section class="materials-units" aria-label="Course unit materials">
+          <article class="materials-unit" data-unit="Computer Networks">
+            <header class="materials-unit__heading">
+              <div><span>CSN 2101</span><h2>Computer Networks</h2></div>
+              <strong>6 resources</strong>
+            </header>
+            <div class="materials-list">
+              <button type="button" class="materials-resource" data-resource-type="lecture" data-resource-name="Network Layers"><span class="materials-resource__icon"><i class="fas fa-file-pdf"></i></span><span><strong>Network Layers</strong><small>Lecture notes · 2.4 MB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="reading" data-resource-name="Subnetting Guide"><span class="materials-resource__icon"><i class="fas fa-file-lines"></i></span><span><strong>Subnetting Guide</strong><small>Reading · 860 KB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="practice" data-resource-name="Routing Exercises"><span class="materials-resource__icon"><i class="fas fa-pen-ruler"></i></span><span><strong>Routing Exercises</strong><small>Practice · 12 questions</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+            </div>
+          </article>
+
+          <article class="materials-unit" data-unit="Software Engineering">
+            <header class="materials-unit__heading">
+              <div><span>SWE 2202</span><h2>Software Engineering</h2></div>
+              <strong>5 resources</strong>
+            </header>
+            <div class="materials-list">
+              <button type="button" class="materials-resource" data-resource-type="lecture" data-resource-name="Requirements Engineering"><span class="materials-resource__icon"><i class="fas fa-file-pdf"></i></span><span><strong>Requirements Engineering</strong><small>Lecture notes · 3.1 MB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="past-paper" data-resource-name="2025 Past Paper"><span class="materials-resource__icon"><i class="fas fa-file-lines"></i></span><span><strong>2025 Past Paper</strong><small>Past paper · 740 KB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+            </div>
+          </article>
+
+          <article class="materials-unit" data-unit="Database Systems">
+            <header class="materials-unit__heading">
+              <div><span>DBS 2301</span><h2>Database Systems</h2></div>
+              <strong>8 resources</strong>
+            </header>
+            <div class="materials-list">
+              <button type="button" class="materials-resource" data-resource-type="lecture" data-resource-name="Relational Modelling"><span class="materials-resource__icon"><i class="fas fa-file-pdf"></i></span><span><strong>Relational Modelling</strong><small>Lecture notes · 1.8 MB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="practice" data-resource-name="SQL Practical 3"><span class="materials-resource__icon"><i class="fas fa-database"></i></span><span><strong>SQL Practical 3</strong><small>Practice · 18 questions</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="reading" data-resource-name="Normalization Notes"><span class="materials-resource__icon"><i class="fas fa-file-lines"></i></span><span><strong>Normalization Notes</strong><small>Reading · 920 KB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+            </div>
+          </article>
+
+          <article class="materials-unit" data-unit="Operating Systems">
+            <header class="materials-unit__heading">
+              <div><span>OSY 2204</span><h2>Operating Systems</h2></div>
+              <strong>4 resources</strong>
+            </header>
+            <div class="materials-list">
+              <button type="button" class="materials-resource" data-resource-type="lecture" data-resource-name="Process Scheduling"><span class="materials-resource__icon"><i class="fas fa-file-pdf"></i></span><span><strong>Process Scheduling</strong><small>Lecture notes · 2.1 MB</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+              <button type="button" class="materials-resource" data-resource-type="practice" data-resource-name="CPU Scheduling Lab"><span class="materials-resource__icon"><i class="fas fa-pen-ruler"></i></span><span><strong>CPU Scheduling Lab</strong><small>Practice · 8 questions</small></span><i class="fas fa-arrow-down materials-resource__action"></i></button>
+            </div>
+          </article>
+        </section>
+        <p class="materials-empty" data-material-empty hidden>No matching course materials found.</p>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

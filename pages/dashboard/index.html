@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-dashboard">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Dashboard</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i><span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="dashboard-welcome">
+          <div>
+            <p class="dashboard-welcome__eyebrow">Student overview</p>
+            <h2>Monday, 24 November</h2>
+          </div>
+        </section>
+
+        <section class="dashboard-summary" aria-label="Student summary">
+          <a class="dashboard-summary-card" href="/pages/schedule/">
+            <span class="dashboard-summary-card__icon"><i class="fas fa-calendar-days" aria-hidden="true"></i></span>
+            <span><strong>0</strong><small>Classes today</small></span>
+            <i class="fas fa-arrow-right dashboard-summary-card__arrow" aria-hidden="true"></i>
+          </a>
+          <a class="dashboard-summary-card" href="/pages/attendance/">
+            <span class="dashboard-summary-card__icon dashboard-summary-card__icon--green"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+            <span><strong>--%</strong><small>Attendance</small></span>
+            <i class="fas fa-arrow-right dashboard-summary-card__arrow" aria-hidden="true"></i>
+          </a>
+          <a class="dashboard-summary-card" href="/pages/course-materials/">
+            <span class="dashboard-summary-card__icon dashboard-summary-card__icon--purple"><i class="fas fa-folder-open" aria-hidden="true"></i></span>
+            <span><strong>0</strong><small>New materials</small></span>
+            <i class="fas fa-arrow-right dashboard-summary-card__arrow" aria-hidden="true"></i>
+          </a>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="student-card dashboard-today">
+            <div class="dashboard-card-heading">
+              <div><p class="student-kicker">Schedule</p><h2>Today’s classes</h2></div>
+              <a href="/pages/schedule/">View all</a>
+            </div>
+            <div class="dashboard-empty">
+              <span><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+              <h3>No classes scheduled</h3>
+              <p>Your timetable will appear when your student account is connected.</p>
+            </div>
+          </article>
+          <aside class="student-card dashboard-activity">
+            <div class="dashboard-card-heading"><div><p class="student-kicker">Updates</p><h2>Recent activity</h2></div></div>
+            <div class="dashboard-empty dashboard-empty--compact">
+              <span><i class="fas fa-bell" aria-hidden="true"></i></span>
+              <h3>Nothing new</h3>
+              <p>Activity and announcements will appear here.</p>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

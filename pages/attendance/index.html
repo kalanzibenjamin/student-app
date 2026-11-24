@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance &amp; QR | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-attendance">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Attendance</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="attendance-summary" aria-label="Attendance overview">
+          <article class="attendance-summary-card">
+            <span class="attendance-summary-card__icon"><i class="fas fa-chart-simple" aria-hidden="true"></i></span>
+            <div><strong>82%</strong><small>Overall attendance</small></div>
+          </article>
+          <article class="attendance-summary-card">
+            <span class="attendance-summary-card__icon attendance-summary-card__icon--green"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+            <div><strong>32 / 39</strong><small>Sessions attended</small></div>
+          </article>
+          <article class="attendance-summary-card">
+            <span class="attendance-summary-card__icon attendance-summary-card__icon--purple"><i class="fas fa-qrcode" aria-hidden="true"></i></span>
+            <div><strong>None</strong><small>Active check-in</small></div>
+          </article>
+        </section>
+
+        <section class="attendance-units" aria-label="Attendance by course unit">
+          <article class="attendance-unit" data-unit-code="CSN 2101" data-unit-name="Computer Networks">
+            <div class="attendance-unit__heading">
+              <div>
+                <span class="attendance-unit__code">CSN 2101</span>
+                <h2>Computer Networks</h2>
+              </div>
+              <strong class="attendance-unit__rate">88%</strong>
+            </div>
+            <div class="attendance-progress" aria-label="88 percent attendance">
+              <span style="--progress: 88%"></span>
+            </div>
+            <div class="attendance-unit__meta">
+              <span><strong>7</strong> attended</span>
+              <span><strong>8</strong> sessions</span>
+              <span class="attendance-status attendance-status--good">On track</span>
+            </div>
+          </article>
+
+          <article class="attendance-unit" data-unit-code="SWE 2202" data-unit-name="Software Engineering">
+            <div class="attendance-unit__heading">
+              <div>
+                <span class="attendance-unit__code">SWE 2202</span>
+                <h2>Software Engineering</h2>
+              </div>
+              <strong class="attendance-unit__rate">75%</strong>
+            </div>
+            <div class="attendance-progress" aria-label="75 percent attendance">
+              <span style="--progress: 75%"></span>
+            </div>
+            <div class="attendance-unit__meta">
+              <span><strong>6</strong> attended</span>
+              <span><strong>8</strong> sessions</span>
+              <span class="attendance-status attendance-status--watch">Needs attention</span>
+            </div>
+          </article>
+
+          <article class="attendance-unit" data-unit-code="DBS 2301" data-unit-name="Database Systems">
+            <div class="attendance-unit__heading">
+              <div>
+                <span class="attendance-unit__code">DBS 2301</span>
+                <h2>Database Systems</h2>
+              </div>
+              <strong class="attendance-unit__rate">92%</strong>
+            </div>
+            <div class="attendance-progress" aria-label="92 percent attendance">
+              <span style="--progress: 92%"></span>
+            </div>
+            <div class="attendance-unit__meta">
+              <span><strong>11</strong> attended</span>
+              <span><strong>12</strong> sessions</span>
+              <span class="attendance-status attendance-status--good">On track</span>
+            </div>
+          </article>
+
+          <article class="attendance-unit" data-unit-code="OSY 2204" data-unit-name="Operating Systems">
+            <div class="attendance-unit__heading">
+              <div>
+                <span class="attendance-unit__code">OSY 2204</span>
+                <h2>Operating Systems</h2>
+              </div>
+              <strong class="attendance-unit__rate">73%</strong>
+            </div>
+            <div class="attendance-progress" aria-label="73 percent attendance">
+              <span style="--progress: 73%"></span>
+            </div>
+            <div class="attendance-unit__meta">
+              <span><strong>8</strong> attended</span>
+              <span><strong>11</strong> sessions</span>
+              <span class="attendance-status attendance-status--watch">Needs attention</span>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

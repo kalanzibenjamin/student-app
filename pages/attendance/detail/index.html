@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Attendance | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-attendance-detail">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Attendance</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <nav class="attendance-breadcrumb" aria-label="Breadcrumb">
+          <a href="/pages/attendance/">Attendance</a>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <span data-detail-code>Course unit</span>
+        </nav>
+
+        <section class="attendance-detail-heading">
+          <div>
+            <span data-detail-code class="attendance-unit__code"></span>
+            <h2 data-detail-name></h2>
+          </div>
+          <span class="attendance-detail-heading__rate" data-detail-rate></span>
+        </section>
+
+        <section class="attendance-session-toolbar" aria-label="Session filters">
+          <button type="button" class="is-active" data-session-filter="all">All sessions</button>
+          <button type="button" data-session-filter="attended">Attended</button>
+          <button type="button" data-session-filter="missed">Missed</button>
+        </section>
+
+        <section class="attendance-sessions" data-session-list aria-live="polite"></section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

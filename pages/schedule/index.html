@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Schedule | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-schedule">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <h1>Schedule</h1>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="student-notification-count" data-count="0" hidden>0</span>
+        </a>
+      </header>
+      <main class="student-content student-page">
+        <section class="schedule-toolbar" aria-label="Schedule controls">
+          <div class="schedule-toolbar__nav">
+            <button class="schedule-icon-button" type="button" data-week-action="previous" aria-label="Previous week">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="schedule-today-button" type="button" data-week-action="today">Today</button>
+            <button class="schedule-icon-button" type="button" data-week-action="next" aria-label="Next week">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="schedule-week-label" data-week-label></p>
+          <time class="schedule-time-now" data-current-time aria-live="polite"></time>
+        </section>
+
+        <nav class="schedule-days" aria-label="Days of the week">
+          <button type="button" data-day="0"><span>Mon</span><strong>24</strong></button>
+          <button type="button" data-day="1"><span>Tue</span><strong>25</strong></button>
+          <button type="button" data-day="2"><span>Wed</span><strong>26</strong></button>
+          <button type="button" data-day="3"><span>Thu</span><strong>27</strong></button>
+          <button type="button" data-day="4"><span>Fri</span><strong>28</strong></button>
+        </nav>
+
+        <section class="schedule-card" aria-label="Weekly class timetable">
+          <div class="schedule-grid">
+            <div class="schedule-time-column" aria-hidden="true">
+              <div class="schedule-time-column__heading"></div>
+              <span>08:00</span><span>09:00</span><span>10:00</span><span>11:00</span>
+              <span>12:00</span><span>13:00</span><span>14:00</span><span>15:00</span>
+              <span>16:00</span>
+            </div>
+
+            <div class="schedule-column" data-schedule-day="0">
+              <header><span>Monday</span><strong>24</strong></header>
+              <div class="schedule-slots">
+                <article class="schedule-class" style="--start: 2; --span: 2;">
+                  <span class="schedule-class__time">09:00 - 11:00</span>
+                  <strong>Database Systems</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> ICT 2</small>
+                </article>
+                <article class="schedule-class schedule-class--blue" style="--start: 5; --span: 2;">
+                  <span class="schedule-class__time">12:00 - 14:00</span>
+                  <strong>Operating Systems</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> Lab 1</small>
+                </article>
+              </div>
+            </div>
+
+            <div class="schedule-column" data-schedule-day="1">
+              <header><span>Tuesday</span><strong>25</strong></header>
+              <div class="schedule-slots">
+                <article class="schedule-class schedule-class--green" style="--start: 1; --span: 2;">
+                  <span class="schedule-class__time">08:00 - 10:00</span>
+                  <strong>Computer Networks</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> NBlock 4</small>
+                </article>
+                <article class="schedule-class schedule-class--purple" style="--start: 6; --span: 2;">
+                  <span class="schedule-class__time">13:00 - 15:00</span>
+                  <strong>Software Engineering</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> Room 201</small>
+                </article>
+              </div>
+            </div>
+
+            <div class="schedule-column" data-schedule-day="2">
+              <header><span>Wednesday</span><strong>26</strong></header>
+              <div class="schedule-slots">
+                <article class="schedule-class schedule-class--purple" style="--start: 3; --span: 2;">
+                  <span class="schedule-class__time">10:00 - 12:00</span>
+                  <strong>Web Technologies</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> Lab 3</small>
+                </article>
+                <article class="schedule-class" style="--start: 7; --span: 2;">
+                  <span class="schedule-class__time">14:00 - 16:00</span>
+                  <strong>Database Systems</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> ICT 2</small>
+                </article>
+              </div>
+            </div>
+
+            <div class="schedule-column" data-schedule-day="3">
+              <header><span>Thursday</span><strong>27</strong></header>
+              <div class="schedule-slots">
+                <article class="schedule-class schedule-class--blue" style="--start: 2; --span: 3;">
+                  <span class="schedule-class__time">09:00 - 12:00</span>
+                  <strong>Systems Analysis</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> Room 304</small>
+                </article>
+              </div>
+            </div>
+
+            <div class="schedule-column" data-schedule-day="4">
+              <header><span>Friday</span><strong>28</strong></header>
+              <div class="schedule-slots">
+                <article class="schedule-class schedule-class--green" style="--start: 4; --span: 2;">
+                  <span class="schedule-class__time">11:00 - 13:00</span>
+                  <strong>Computer Networks</strong>
+                  <small><i class="fas fa-location-dot" aria-hidden="true"></i> NBlock 2</small>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

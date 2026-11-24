@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help &amp; Support | Student Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+<body class="student-portal-page" data-page="student-help">
+  <div class="student-layout">
+    <div data-student-navigation></div>
+    <div class="student-main">
+      <header class="student-topbar">
+        <div><p class="student-kicker">Support</p><h1>Help &amp; Support</h1></div>
+        <a class="student-notification-link" href="/pages/notifications/" aria-label="Notifications"><i class="fas fa-bell" aria-hidden="true"></i></a>
+      </header>
+      <main class="student-content student-page">
+        <section class="student-page__intro"><div><h2>How can we help?</h2><p>Find guidance for common student portal tasks.</p></div></section>
+        <section class="student-grid student-grid--two">
+          <article class="student-card"><h2>Sign-in help</h2><p class="student-muted">Use your university-issued student ID or email. Contact your faculty if your account has not been activated.</p></article>
+          <article class="student-card"><h2>Attendance help</h2><p class="student-muted">Check in only during an active class session and allow location access only when required.</p></article>
+          <article class="student-card"><h2>Course materials</h2><p class="student-muted">Materials are organized by the course units in your timetable.</p></article>
+          <article class="student-card"><h2>Contact support</h2><p class="student-muted">University support contact details will be added here.</p></article>
+        </section>
+      </main>
+    </div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <script type="module" src="/src/js/app-main.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

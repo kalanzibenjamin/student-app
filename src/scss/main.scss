@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+
+// ========================================
+// kyu.clareon.live — Main Stylesheet
+// ========================================
+
+@import 'abstract/variables';
+@import 'abstract/mixins';
+@import 'base/reset';
+@import 'base/typography';
+@import 'layout/grid';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/buttons';
+@import 'components/glass';
+@import 'components/cards';
+@import 'components/forms';
+@import 'components/dropdowns';
+@import 'utils/responsive';
+@import 'pages/student-portal';
+@import 'pages/dashboard';
+@import 'pages/schedule';
+@import 'pages/attendance';
+@import 'pages/notifications';
+@import 'pages/profile';
+@import 'pages/settings';
+@import 'pages/materials';
