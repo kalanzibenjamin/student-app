@@ -2,7 +2,7 @@ name: Deploy student app
 #new
 on:
   push:
-    branches: ["master"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
